@@ -68,7 +68,7 @@ export default function Navbar() {
             {isSignedIn && isLoaded && (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Avatar className="mr-4 mt-1 size-5">
+                        <Avatar className="mt-1 size-5">
                             <AvatarFallback className="bg-muted text-xs">AI</AvatarFallback>
                             <AvatarImage
                                 className="h-full w-full rounded-full bg-muted/40"

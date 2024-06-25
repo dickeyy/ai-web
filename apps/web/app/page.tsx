@@ -7,7 +7,7 @@ export default function Home() {
         <div className="flex min-h-screen flex-col items-center justify-center px-4 py-4">
             <Navbar />
             <WelcomeTitle />
-            <div className="absolute bottom-4 flex w-[55%] flex-col gap-4">
+            <div className="absolute bottom-4 flex w-[90%] flex-col items-center justify-center gap-4 md:w-2/3 lg:w-1/2 2xl:w-1/4">
                 <PromptInput />
             </div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { SignInButton, SignUpButton, useAuth, useUser } from "@clerk/nextjs";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
@@ -17,12 +17,17 @@ export default function WelcomeTitle() {
     return (
         <div className="flex h-full w-full items-center justify-center p-4 text-center">
             {user && isLoaded ? (
-                <h1 className="font-serif text-4xl text-foreground">
+                <motion.h1
+                    className="font-serif text-4xl text-foreground"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4 }}
+                >
                     {greeting},{" "}
                     <span className="italic text-foreground/60">
                         <Typing text={user.firstName || user.emailAddresses[0].emailAddress} />
                     </span>
-                </h1>
+                </motion.h1>
             ) : (
                 <div className="flex w-full max-w-[30rem] flex-col items-center justify-center">
                     <motion.div
@@ -49,10 +54,10 @@ export default function WelcomeTitle() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.4, delay: 1.4 }}
                     >
-                        <Button variant="outline" className="w-full">
+                        <Button variant="outline" className="w-full" asChild>
                             <SignInButton />
                         </Button>
-                        <Button variant="default" className="w-full">
+                        <Button variant="default" className="w-full" asChild>
                             <SignUpButton />
                         </Button>
                     </motion.div>
@@ -69,7 +74,7 @@ export function Typing({ text, className }: { text: string; className?: string }
         hidden: { opacity: 0 },
         visible: (i = 1) => ({
             opacity: 1,
-            transition: { staggerChildren: 0.2, delayChildren: 0.04 * i, delay: 0.4 }
+            transition: { staggerChildren: 0.2, delayChildren: 0.54 * i, delay: 0.45 }
         })
     };
 
