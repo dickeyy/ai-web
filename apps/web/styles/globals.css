@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 3.9%;
+
+        --primary: 240 5.9% 10%;
+        --primary-foreground: 0 0% 98%;
+
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 240 10% 3.9%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 0 0% 11%;
+        --foreground: 0 0% 98%;
+
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    .glass-blur::before {
+        backdrop-filter: blur(5px) contrast(100%);
+        -webkit-backdrop-filter: blur(5px) contrast(100%);
+    }
+    .glass-blur {
+        backdrop-filter: blur(5px) contrast(100%);
+        -webkit-backdrop-filter: blur(5px) contrast(100%);
+    }
+}
+
+/* Blog */
+.blog-content {
+    @apply flex flex-col gap-3 text-foreground/80;
+}
+
+.blog-content > h1 {
+    @apply font-serif text-4xl font-bold text-foreground;
+}
+
+.blog-content > h2 {
+    @apply mt-4 font-serif text-2xl font-bold text-foreground;
+}
+
+.blog-content > h3 {
+    @apply font-serif text-xl font-bold text-foreground;
+}
+
+.blog-content > ol {
+    @apply list-inside list-decimal;
+}
+
+.blog-content > ul {
+    @apply list-inside list-disc;
+}
+
+.blog-content > pre {
+    @apply rounded-lg border bg-foreground/10 p-3 text-sm text-card-foreground shadow-sm;
+}
+
+.blog-content > pre > code {
+    @apply block;
+}
+
+.blog-content > p > code {
+    @apply rounded-[0.3rem] border bg-foreground/10 px-1 text-sm text-card-foreground;
+}
+
+.blog-content > ul > li > code {
+    @apply rounded-[0.3rem] border bg-foreground/10 px-1 text-sm text-card-foreground;
+}
+
+.blog-content > blockquote {
+    @apply border-l-2 border-primary/40 p-2;
+}
+
+.blog-content > blockquote > p {
+    @apply italic text-foreground/60;
+}
+
+.blog-content > p > a {
+    @apply text-primary/60 underline transition-all duration-150 ease-in-out hover:text-primary;
+}
+
+.blog-content > p > img {
+    @apply h-auto w-full items-center justify-center rounded-lg shadow-sm;
+}
+
+.blog-content > p > img + figcaption {
+    @apply text-center text-sm text-muted/60;
+}
+
+.blog-content > hr {
+    @apply mt-4 border-primary/10;
+}
+
+.blog-content > p {
+    @apply text-foreground/80;
+}
+
+.blog-content > strong {
+    @apply text-foreground;
+}
+
+.blog-content > ul > li > strong {
+    @apply text-foreground;
+}
+
+.blog-content > ul > li > a {
+    @apply text-primary/60 underline transition-all duration-150 ease-in-out hover:text-primary;
+}
+
+.blog-content > h2 > a {
+    @apply text-primary transition-all duration-150 ease-in-out hover:text-primary hover:underline;
+}
+
+.blog-content > ul > li > a > code {
+    @apply rounded-[0.3rem] border bg-foreground/10 px-1 font-mono text-[14px] text-card-foreground/80 hover:text-foreground;
+}
